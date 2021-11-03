@@ -1,0 +1,21 @@
+---
+title: "CFB_Analytics"
+output: html_document
+---
+```{r}
+library(tidyverse)
+library(graphics)
+library(ggmap)
+```
+
+```{r}
+teams = read.csv('/home/mholswade/Documents/projects/CFB_Analytics/data/team_colors.csv')
+
+
+
+```
+
+```{r}
+red_teams = teams[which(teams$color_name == 'Red'),]
+
+```
