@@ -1,0 +1,131 @@
+,team,color,alt_color,color_name,alt_color_name
+0,Air Force,#004a7b,#ffffff,Blue,White
+1,Akron,#00285e,#84754e,Blue,Yellow
+2,Alabama,#690014,#f1f2f3,Red,White
+3,Appalachian State,#000000,#ffcd00,Black,Yellow
+4,Arizona,#002449,#00205b,Blue,Red
+5,Arizona State,#942139,#f1f2f3,Red,Yellow
+6,Arkansas,#9c1831,#000000,Red,White
+7,Arkansas State,#e81018,#000000,Red,Black
+8,Army,#ce9c00,#231f20,Black,Yellow
+9,Auburn,#03244d,#f1f2f3,Blue,Orange
+10,Ball State,#DA0000,#ffffff,Red,White
+11,Baylor,#004834,#ffb81c,Green,Yellow
+12,Boise State,#09347A,#d8d9da,Blue,Orange
+13,Boston College,#88001a,#a39161,Red,Yellow
+14,Bowling Green,#2b1000,#492000,Brown,Orange
+15,Buffalo,#041A9B,#ebebeb,Blue,White
+16,BYU,#001E4C,#ffffff,Blue,Gray
+17,California,#031522,#ffc423,Blue,Yellow
+18,Central Michigan,#6a0032,#ffffff,Red,Yellow
+19,Charlotte,#cfab7a,#ffffff,Green,White
+20,Cincinnati,#000000,#717073,Red,White
+21,Clemson,#F66733,#522d80,Orange,Purple
+22,Coastal Carolina,#007073,#876447,Blue,Brown
+23,Colorado,#d1c57e,#ffd200,Gray,Yellow
+24,Colorado State,#004537,#ffc425,Green,Yellow
+25,Connecticut,#001d40,#f1f2f3,Blue,White
+26,Duke,#001A57,#f1f2f3,Blue,White
+27,East Carolina,#4b1869,#f0907b,Red,Black
+28,Eastern Michigan,#00331b,#f0f0f0,Green,White
+29,Florida,#0021A5,#0021a5,Blue,Orange
+30,Florida Atlantic,#004B85,#bb2f4c,Blue,Red
+31,Florida International,#001538,#c5960c,Blue,Gold
+32,Florida State,#782F40,#ceb888,Red,Yellow
+33,Fresno State,#c41230,#231f20,Red,Blue
+34,Georgia,#CC0000,#000000,Red,White
+35,Georgia Southern,#003775,#f0f0f0,Blue,White
+36,Georgia State,#1e539a,#ebebeb,Blue,White
+37,Georgia Tech,#00223e,#002c56,Yellow,Blue
+38,Hawai'i,#003420,#ffffff,Green,Black
+39,Houston,#C90822,#231f20,Red,White
+40,Illinois,#f77329,#fa6300,Blue,Orange
+41,Indiana,#7D110C,#eeedeb,Red,White
+42,Iowa,#000000,#ffe100,Yellow,Black
+43,Iowa State,#660015,#830b2c,Red,Yellow
+44,Kansas,#0022B4,#e8000d,Blue,Red
+45,Kansas State,#633194,#e7d2ad,Purple,White
+46,Kent State,#002445,#f0b510,Blue,Yellow
+47,Kentucky,#005DAA,#ffffff,Blue,White
+48,Liberty,#071740,#a61f21,Blue,Red
+49,Louisiana,#ce2842,,Red,White
+50,Louisiana Monroe,#231F20,#b18445,Red,Yellow
+51,Louisiana Tech,#002d65,#d3313a,Blue,Red
+52,Louisville,#ad000a,#cccccc,Red,White
+53,LSU,#fdd023,#2b0d57,Purple,Yellow
+54,Marshall,#186329,#be854c,Green,White
+55,Maryland,#D5002B,#ffcd00,Red,Yellow
+56,Memphis,#003087,#898d8d,Blue,Gray
+57,Miami,#004325,#f0f0f0,Orange,Green
+58,Miami (OH),#a4000c,#f0f0f0,Red,White
+59,Michigan,#00274c,#00274c,Blue,Yellow
+60,Michigan State,#18453B,#ffffff,Green,White
+61,Middle Tennessee,#0079C2,#c3c5c8,Blue,White
+62,Minnesota,#981a31,#981a31,Red,Yellow
+63,Mississippi State,#762123,#c8c8c8,Red,White
+64,Missouri,#000000,#000000,Yellow,Black
+65,Navy,#131630,#b6a77c,Blue,Yellow
+66,NC State,#EF1216,#231f20,Red,White
+67,Nebraska,#F20017,#f5f1e7,Red,White
+68,Nevada,#153E5F,#8e9295,Blue,Gray
+69,New Mexico,#000000,#231f20,Red,Gray
+70,New Mexico State,#891216,#000000,Crimson,White
+71,North Carolina,#99bfe5,#13294b,Blue,White
+72,Northern Illinois,#F1122C,#cc0000,Red,Black
+73,North Texas,#00853D,#000000,Green,White
+74,Northwestern,#372286,#d6cac1,Purple,Black
+75,Notre Dame,#00122b,#ae9142,Blue,Yellow
+76,Ohio,#295A29,#e4bb85,Green,White
+77,Ohio State,#DE3121,#666666,Red,Gray
+78,Oklahoma,#7b0000,#cccccc,Red,White
+79,Oklahoma State,#FF6500,#ff9900,Orange,Black
+80,Old Dominion,#00507d,#a1d2f1,Blue,Silver
+81,Ole Miss,#001148,#00205b,Red,White
+82,Oregon,#044520,#fee123,Green,Yellow
+83,Oregon State,#c34500,#dea076,Orange,Black
+84,Penn State,#00265D,#002e5c,Blue,White
+85,Pittsburgh,#003263,#231f20,Blue,Yellow
+86,Purdue,#B89D29,#a4a9ad,Yellow,Black
+87,Rice,#003D7D,#d1d5d8,Blue,Gray
+88,Rutgers,#d21034,#ffffff,Red,Gray
+89,San Diego State,#BF2C37,#a8996e,Red,Black
+90,San José State,#005893,#fdba31,Yellow,White
+91,SMU,#E32F38,#ecdcb9,Red,Blue
+92,South Alabama,#003E7E,,Blue,Red
+93,South Carolina,#670010,#000000,Red,Black
+94,Southern Mississippi,#FFAA3C,#ffc423,Black,Yellow
+95,South Florida,#004A36,#231f20,Green,Yellow
+96,Stanford,#A80532,#ffffff,Red,White
+97,Syracuse,#F37321,#0d1d37,Orange,White
+98,TCU,#3C377D,#f1f2f3,Purple,White
+99,Temple,#A80532,#a7a9ac,Red,White
+100,Tennessee,#EE9627,#ffffff,Orange,White
+101,Texas,#EE7524,#f0f0f0,Orange,White
+102,Texas A&M,#5C0025,#ffffff,Red,White
+103,Texas State,#4e1719,#b4975a,Red,Yellow
+104,Texas Tech,#C80025,#231f20,Red,Black
+105,Toledo,#ffffff,#ffd51d,Blue,Yellow
+106,Troy,#AE0210,#88898c,Red,Gray
+107,Tulane,#005837,#3baf29,Green,Blue
+108,Tulsa,#004371,#ee3b33,Yellow,Blue
+109,UAB,#003b28,#ffc845,Green,Yellow
+110,UCF,#000000,#231f20,Black,Yellow
+111,UCLA,#005C8E,#ffc72c,Blue,Yellow
+112,UMass,#880007,,Red,White
+113,UNLV,#000000,#c2c4c6,Red,Gray
+114,USC,#ffc72c,#ae2531,Red,Yellow
+115,Utah,#890012,#7e8083,Red,White
+116,Utah State,#003263,#949ca1,Blue,Black
+117,UTEP,#ff8200,#041e42,Blue,Orange
+118,UT San Antonio,#002A5C,#f47321,Blue,Orange
+119,Vanderbilt,#000000,#231f20,Yellow,Black
+120,Virginia,#f84c1e,#ffffff,Blue,Orange
+121,Virginia Tech,#74232D,#c2c1ba,Red,Orange
+122,Wake Forest,#9E7E38,#000000,Yellow,Black
+123,Washington,#2B2F64,#e8e3d3,Purple,White
+124,Washington State,#94022a,#6a747c,Red,Gray
+125,Western Kentucky,#F32026,#b3b5b8,Red,White
+126,Western Michigan,#532e1f,#8b7f79,Brown,Yellow
+127,West Virginia,#FFC600,#eaaa00,Blue,Yellow
+128,Wisconsin,#A00001,#f7f7f7,Red,Black
+129,Wyoming,#533B22,#ffffff,Red,Yellow
