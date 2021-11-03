@@ -18,4 +18,18 @@ teams = read.csv('/home/mholswade/Documents/projects/CFB_Analytics/data/team_col
 ```{r}
 red_teams = teams[which(teams$color_name == 'Red'),]
 
+usa = map_data('usa')
+
+usamap = ggplot(usa, aes(x=long, y=lat,group=group))  + geom_path()  + ggtitle('Red Colleges')
+  
+usamap +   geom_point(data=red_teams,aes(x = longitude, y = latitude,color='red'),inherit.aes = F) + geom_text(data=red_teams, aes(x = longitude, y = latitude, label=team),inherit.aes = F,hjust=0, vjust=0)
+```
+
+```{r}
+blue_teams = teams[which(teams$color_name == 'Blue'),]
+
+usa = map_data('usa')
+
+usamap = ggplot(usa, aes(x=long, y=lat,group=group))  + geom_path() + ggtitle('Blue Colleges')
+usamap +   geom_point(data=blue_teams,aes(x = longitude, y = latitude,color='blue'),inherit.aes = F) + geom_text(data=blue_teams, aes(x = longitude, y = latitude, label=team),inherit.aes = F,hjust=0, vjust=0)
 ```
