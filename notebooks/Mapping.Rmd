@@ -33,3 +33,31 @@ usa = map_data('usa')
 usamap = ggplot(usa, aes(x=long, y=lat,group=group))  + geom_path() + ggtitle('Blue Colleges')
 usamap +   geom_point(data=blue_teams,aes(x = longitude, y = latitude,color='blue'),inherit.aes = F) + geom_text(data=blue_teams, aes(x = longitude, y = latitude, label=team),inherit.aes = F,hjust=0, vjust=0)
 ```
+
+```{r}
+orange_teams = teams[which(teams$color_name == 'Orange'),]
+
+usa = map_data('usa')
+
+usamap = ggplot(usa, aes(x=long, y=lat,group=group))  + geom_path() + ggtitle('Orange Colleges')
+usamap +   geom_point(data=orange_teams,aes(x = longitude, y = latitude,color='blue'),inherit.aes = F) + geom_text(data=orange_teams, aes(x = longitude, y = latitude, label=team),inherit.aes = F,hjust=0, vjust=0)
+```
+
+```{r}
+yellow_teams = teams[which(teams$color_name == 'Yellow'),]
+
+usa = map_data('usa')
+
+usamap = ggplot(usa, aes(x=long, y=lat,group=group))  + geom_path() + ggtitle('Yellow Colleges')
+usamap +   geom_point(data=yellow_teams,aes(x = longitude, y = latitude,color='blue'),inherit.aes = F) + geom_text(data=yellow_teams, aes(x = longitude, y = latitude, label=team),inherit.aes = F,hjust=0, vjust=0)
+```
+
+```{r}
+brown_teams = teams[which(teams$color_name == 'Brown'),]
+
+usa = map_data('usa')
+
+usamap = ggplot(usa, aes(x=long, y=lat,group=group))  + geom_path() + ggtitle('Brown Colleges')
+usamap +   geom_point(data=brown_teams,aes(x = longitude, y = latitude,color='brown'),inherit.aes = F) + geom_text(data=brown_teams, aes(x = longitude, y = latitude, label=team),inherit.aes = F,hjust=0, vjust=0)
+```
+
