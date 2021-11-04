@@ -103,6 +103,7 @@ games = games[which(games$fbs_game == TRUE),]
 
 ```{r}
 games$col_conf_game = FALSE
+games$col_conf = ''
 for (i in 1:length(games$id)){
   hid = games[i,]$home_id
   hconf = teams[which(teams$id == hid),]$col_conf
@@ -112,6 +113,7 @@ for (i in 1:length(games$id)){
   
   if (hconf == aconf){
     games[i,]$col_conf_game = TRUE
+    games[i,]$col_conf = hconf
   }
 }
 
@@ -120,6 +122,32 @@ for (i in 1:length(games$id)){
 
 
 ```{r}
+conf_games = games[which(games['col_conf_game'] == TRUE),]
 
+#FIXME# Change so that the actual names of conferences are used, otherwise this will depend on what data conf_games is built with
+blue_conf_games = conf_games[which(conf_games['col_conf'] == 1),]
+other_conf_games = conf_games[which(conf_games['col_conf'] == 2),]
+red_conf_games = conf_games[which(conf_games['col_conf'] == 3),]
+
+```
+
+
+```{r}
+blue_teams = teams[which(teams$col_conf == 'Blue'),]
+red_teams = teams[which(teams$col_conf == 'Red'),]
+other_teams = teams[which(teams$col_conf == 'Other'),]
+```
+
+
+```{r}
+blue_teams$wins = 0
+blue_teams$losses = 0
+red_teams$wins = 0
+red_teams$losses = 0
+other_teams$wins = 0
+other_teams$losses = 0
+for (j in 1:len(blue_games$col_conf)){
+  if
+}
 
 ```
