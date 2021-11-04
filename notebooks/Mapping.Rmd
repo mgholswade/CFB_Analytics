@@ -61,3 +61,65 @@ usamap = ggplot(usa, aes(x=long, y=lat,group=group))  + geom_path() + ggtitle('B
 usamap +   geom_point(data=brown_teams,aes(x = longitude, y = latitude,color='brown'),inherit.aes = F) + geom_text(data=brown_teams, aes(x = longitude, y = latitude, label=team),inherit.aes = F,hjust=0, vjust=0)
 ```
 
+
+```{r}
+other_teams = teams[which(teams$color_name != 'Red' & teams$color_name != 'Blue'),]
+
+```
+
+```{r}
+#add new columns for conference
+teams$col_conf = 'Blue'
+
+teams[which(teams$color_name != 'Red' & teams$color_name != 'Blue'),]$col_conf = 'Other'
+
+teams[which(teams$color_name == 'Red'),]$col_conf = 'Red'
+```
+
+```{r}
+#write.csv(teams,'/home/mholswade/Documents/projects/CFB_Analytics/data/team_colors.csv')
+
+```
+
+```{r}
+games = read.csv('/home/mholswade/Documents/projects/CFB_Analytics/data/games_mod.csv')
+
+```
+
+```{r}
+team_ids = teams$id
+games$fbs_game = FALSE
+for (i in 1:length(games$id)){
+  hid = games[i,]$home_id
+  aid = games[i,]$away_id
+  if (hid %in% team_ids & aid %in% team_ids){
+    games[i,]$fbs_game = TRUE
+  }
+
+}
+games = games[which(games$fbs_game == TRUE),]
+
+```
+
+```{r}
+games$col_conf_game = FALSE
+for (i in 1:length(games$id)){
+  hid = games[i,]$home_id
+  hconf = teams[which(teams$id == hid),]$col_conf
+  
+  aid = games[i,]$away_id
+  aconf = teams[which(teams$id == aid),]$col_conf
+  
+  if (hconf == aconf){
+    games[i,]$col_conf_game = TRUE
+  }
+}
+
+
+```
+
+
+```{r}
+
+
+```
