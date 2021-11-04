@@ -124,10 +124,10 @@ for (i in 1:length(games$id)){
 ```{r}
 conf_games = games[which(games['col_conf_game'] == TRUE),]
 
-#FIXME# Change so that the actual names of conferences are used, otherwise this will depend on what data conf_games is built with
-blue_conf_games = conf_games[which(conf_games['col_conf'] == 1),]
-other_conf_games = conf_games[which(conf_games['col_conf'] == 2),]
-red_conf_games = conf_games[which(conf_games['col_conf'] == 3),]
+
+blue_conf_games = conf_games[which(conf_games['col_conf'] == 'Blue'),]
+other_conf_games = conf_games[which(conf_games['col_conf'] == 'Other'),]
+red_conf_games = conf_games[which(conf_games['col_conf'] == 'Red'),]
 
 ```
 
@@ -146,8 +146,11 @@ red_teams$wins = 0
 red_teams$losses = 0
 other_teams$wins = 0
 other_teams$losses = 0
+
+rownames(blue_conf_games) <- 1:nrow(blue_conf_games)
+#FIXME# Dataset includes games that havent been played yet. Need to account for this by dropping any rows with dates greater than the current date.
 for (i in 1:length(blue_conf_games$col_conf)){
-  print(i)
+  
   if (blue_conf_games[i,]$home_points >= blue_conf_games[i,]$away_points){
     winner_id = blue_conf_games[i,]$home_id
     loser_id = blue_conf_games[i,]$away_id
