@@ -157,7 +157,7 @@ for (i in 1:length(blue_conf_games$col_conf)){
     loser_id = blue_conf_games[i,]$home_id
     }
   blue_teams[which(blue_teams$id == winner_id),]$wins = blue_teams[which(blue_teams$id == winner_id),]$wins + 1
-  blue_teams[which(blue_teams$id == loser_id),]$wins = blue_teams[which(blue_teams$id == loser_id),]$losses + 1
+  blue_teams[which(blue_teams$id == loser_id),]$losses = blue_teams[which(blue_teams$id == loser_id),]$losses + 1
 
 }
 
