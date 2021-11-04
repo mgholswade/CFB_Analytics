@@ -146,8 +146,19 @@ red_teams$wins = 0
 red_teams$losses = 0
 other_teams$wins = 0
 other_teams$losses = 0
-for (j in 1:len(blue_games$col_conf)){
-  if
+for (i in 1:length(blue_conf_games$col_conf)){
+  print(i)
+  if (blue_conf_games[i,]$home_points >= blue_conf_games[i,]$away_points){
+    winner_id = blue_conf_games[i,]$home_id
+    loser_id = blue_conf_games[i,]$away_id
+  }
+  else{
+    winner_id = blue_conf_games[i,]$away_id
+    loser_id = blue_conf_games[i,]$home_id
+    }
+  blue_teams[which(blue_teams$id == winner_id),]$wins = blue_teams[which(blue_teams$id == winner_id),]$wins + 1
+  blue_teams[which(blue_teams$id == loser_id),]$wins = blue_teams[which(blue_teams$id == loser_id),]$losses + 1
+
 }
 
 ```
