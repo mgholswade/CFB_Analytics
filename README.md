@@ -19,3 +19,8 @@ This project in its current state is only suitable for use by developers familia
 All team and game data was retrieved using the collegefootballdata.com paython api. Instructions for using the api can be found here:
 #FIXME# insert link to api help page
 
+# Contact Me   
+If you have any suggestions or improvements you would like to share, feel free to email me at mgholswade@gmail.com. I appreciate any and all feedback. 
+
+If you have forked the repository and have made changes you think would be beneficial, please feel free to open a merge request with a brief explanation of what you have done. 
+
