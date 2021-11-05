@@ -3,16 +3,133 @@ title: "Standings"
 output: html_notebook
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
 ```{r}
-plot(cars)
+teams = read.csv('/home/mholswade/Documents/projects/CFB_Analytics/data/team_colors.csv')
+
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+```{r}
+#add new columns for conference
+teams$col_conf = 'Blue'
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+teams[which(teams$color_name != 'Red' & teams$color_name != 'Blue'),]$col_conf = 'Other'
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+teams[which(teams$color_name == 'Red'),]$col_conf = 'Red'
+```
+
+```{r}
+games = read.csv('/home/mholswade/Documents/projects/CFB_Analytics/data/games_mod.csv')
+
+```
+
+```{r}
+team_ids = teams$id
+games$fbs_game = FALSE
+for (i in 1:length(games$id)){
+  hid = games[i,]$home_id
+  aid = games[i,]$away_id
+  if (hid %in% team_ids & aid %in% team_ids){
+    games[i,]$fbs_game = TRUE
+  }
+
+}
+games = games[which(games$fbs_game == TRUE),]
+
+```
+
+```{r}
+games$col_conf_game = FALSE
+games$col_conf = ''
+for (i in 1:length(games$id)){
+  hid = games[i,]$home_id
+  hconf = teams[which(teams$id == hid),]$col_conf
+  
+  aid = games[i,]$away_id
+  aconf = teams[which(teams$id == aid),]$col_conf
+  
+  if (hconf == aconf){
+    games[i,]$col_conf_game = TRUE
+    games[i,]$col_conf = hconf
+  }
+}
+
+
+```
+
+
+```{r}
+conf_games = games[which(games['col_conf_game'] == TRUE),]
+
+#FIXME# Currently dropping all rows after week 9, need to change back once a better system is in place
+blue_conf_games = conf_games[which(conf_games['col_conf'] == 'Blue' & conf_games['week'] < 10),]
+other_conf_games = conf_games[which(conf_games['col_conf'] == 'Other' & conf_games['week'] < 10),]
+red_conf_games = conf_games[which(conf_games['col_conf'] == 'Red' & conf_games['week'] < 10),]
+
+```
+
+
+```{r}
+blue_teams = teams[which(teams$col_conf == 'Blue'),]
+red_teams = teams[which(teams$col_conf == 'Red'),]
+other_teams = teams[which(teams$col_conf == 'Other'),]
+```
+
+
+```{r}
+blue_teams$wins = 0
+blue_teams$losses = 0
+red_teams$wins = 0
+red_teams$losses = 0
+other_teams$wins = 0
+other_teams$losses = 0
+
+#FIXME# Dataset includes games that havent been played yet. Need to account for this by dropping any rows with dates greater than the current date.
+
+#Temporary fix: Only take data from weeks 1-9
+
+for (i in 1:length(blue_conf_games$col_conf)){
+  
+  if (blue_conf_games[i,]$home_points >= blue_conf_games[i,]$away_points){
+    winner_id = blue_conf_games[i,]$home_id
+    loser_id = blue_conf_games[i,]$away_id
+  }
+  else{
+    winner_id = blue_conf_games[i,]$away_id
+    loser_id = blue_conf_games[i,]$home_id
+    }
+  blue_teams[which(blue_teams$id == winner_id),]$wins = blue_teams[which(blue_teams$id == winner_id),]$wins + 1
+  blue_teams[which(blue_teams$id == loser_id),]$losses = blue_teams[which(blue_teams$id == loser_id),]$losses + 1
+
+}
+
+for (i in 1:length(other_conf_games$col_conf)){
+  
+  if (other_conf_games[i,]$home_points >= other_conf_games[i,]$away_points){
+    winner_id = other_conf_games[i,]$home_id
+    loser_id = other_conf_games[i,]$away_id
+  }
+  else{
+    winner_id = other_conf_games[i,]$away_id
+    loser_id = other_conf_games[i,]$home_id
+    }
+  other_teams[which(other_teams$id == winner_id),]$wins = other_teams[which(other_teams$id == winner_id),]$wins + 1
+  other_teams[which(other_teams$id == loser_id),]$losses = other_teams[which(other_teams$id == loser_id),]$losses + 1
+
+}
+
+for (i in 1:length(red_conf_games$col_conf)){
+  
+  if (red_conf_games[i,]$home_points >= red_conf_games[i,]$away_points){
+    winner_id = red_conf_games[i,]$home_id
+    loser_id = red_conf_games[i,]$away_id
+  }
+  else{
+    winner_id = red_conf_games[i,]$away_id
+    loser_id = red_conf_games[i,]$home_id
+    }
+  red_teams[which(red_teams$id == winner_id),]$wins = red_teams[which(red_teams$id == winner_id),]$wins + 1
+  red_teams[which(red_teams$id == loser_id),]$losses = red_teams[which(red_teams$id == loser_id),]$losses + 1
+
+}
+
+```

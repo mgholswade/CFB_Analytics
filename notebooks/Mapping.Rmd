@@ -67,101 +67,10 @@ other_teams = teams[which(teams$color_name != 'Red' & teams$color_name != 'Blue'
 
 ```
 
-```{r}
-#add new columns for conference
-teams$col_conf = 'Blue'
 
-teams[which(teams$color_name != 'Red' & teams$color_name != 'Blue'),]$col_conf = 'Other'
-
-teams[which(teams$color_name == 'Red'),]$col_conf = 'Red'
-```
 
 ```{r}
 #write.csv(teams,'/home/mholswade/Documents/projects/CFB_Analytics/data/team_colors.csv')
 
 ```
 
-```{r}
-games = read.csv('/home/mholswade/Documents/projects/CFB_Analytics/data/games_mod.csv')
-
-```
-
-```{r}
-team_ids = teams$id
-games$fbs_game = FALSE
-for (i in 1:length(games$id)){
-  hid = games[i,]$home_id
-  aid = games[i,]$away_id
-  if (hid %in% team_ids & aid %in% team_ids){
-    games[i,]$fbs_game = TRUE
-  }
-
-}
-games = games[which(games$fbs_game == TRUE),]
-
-```
-
-```{r}
-games$col_conf_game = FALSE
-games$col_conf = ''
-for (i in 1:length(games$id)){
-  hid = games[i,]$home_id
-  hconf = teams[which(teams$id == hid),]$col_conf
-  
-  aid = games[i,]$away_id
-  aconf = teams[which(teams$id == aid),]$col_conf
-  
-  if (hconf == aconf){
-    games[i,]$col_conf_game = TRUE
-    games[i,]$col_conf = hconf
-  }
-}
-
-
-```
-
-
-```{r}
-conf_games = games[which(games['col_conf_game'] == TRUE),]
-
-
-blue_conf_games = conf_games[which(conf_games['col_conf'] == 'Blue'),]
-other_conf_games = conf_games[which(conf_games['col_conf'] == 'Other'),]
-red_conf_games = conf_games[which(conf_games['col_conf'] == 'Red'),]
-
-```
-
-
-```{r}
-blue_teams = teams[which(teams$col_conf == 'Blue'),]
-red_teams = teams[which(teams$col_conf == 'Red'),]
-other_teams = teams[which(teams$col_conf == 'Other'),]
-```
-
-
-```{r}
-blue_teams$wins = 0
-blue_teams$losses = 0
-red_teams$wins = 0
-red_teams$losses = 0
-other_teams$wins = 0
-other_teams$losses = 0
-
-rownames(blue_conf_games) <- 1:nrow(blue_conf_games)
-#FIXME# Dataset includes games that havent been played yet. Need to account for this by dropping any rows with dates greater than the current date.
-for (i in 1:length(blue_conf_games$col_conf)){
-  
-  if (blue_conf_games[i,]$home_points >= blue_conf_games[i,]$away_points){
-    winner_id = blue_conf_games[i,]$home_id
-    loser_id = blue_conf_games[i,]$away_id
-  }
-  else{
-    winner_id = blue_conf_games[i,]$away_id
-    loser_id = blue_conf_games[i,]$home_id
-    }
-  blue_teams[which(blue_teams$id == winner_id),]$wins = blue_teams[which(blue_teams$id == winner_id),]$wins + 1
-  blue_teams[which(blue_teams$id == loser_id),]$losses = blue_teams[which(blue_teams$id == loser_id),]$losses + 1
-
-}
-
-```
