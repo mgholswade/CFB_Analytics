@@ -133,3 +133,12 @@ for (i in 1:length(red_conf_games$col_conf)){
 }
 
 ```
+
+```{r}
+#Sort by losses first, then sort by wins
+
+#Order by number of losses 
+#FIXME# Need to use df tool to sort; currently only sorts the vector
+blue_loss_sort = sort(blue_teams$losses,decreasing=FALSE)
+
+```
